@@ -21,19 +21,19 @@ export default function ProductCard({ product }: { product: Product }) {
 		>
 			<div className='relative'>
 				{product.preorder && (
-					<span className='badge absolute left-3 top-3 z-10 bg-yellow-200 text-yellow-800 px-2 py-1 rounded-md text-xs font-medium'>
+					<span className='absolute left-3 top-3 z-10 bg-yellow-200 text-yellow-800 px-2 py-1 rounded-md text-xs font-medium'>
 						Под заказ
 					</span>
 				)}
 
-				<div className='relative aspect-video w-full rounded-xl overflow-hidden bg-gray-200'>
+				{/* Ключевой блок */}
+				<div className='relative w-full h-56 rounded-xl overflow-hidden bg-gray-200'>
 					<Image
 						src={img}
 						alt={product.name}
 						fill
-						className='object-cover'
+						className='object-cover transition-transform duration-300 hover:scale-105'
 						sizes='(max-width: 768px) 100vw, 400px'
-						priority
 					/>
 				</div>
 			</div>
