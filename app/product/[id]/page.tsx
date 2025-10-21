@@ -107,7 +107,7 @@ export default async function ProductPage({
 						</div>
 						<a
 							className='btn btn-outline'
-							href='https://t.me/your_username'
+							href='https://t.me/Koeeeeen'
 							target='_blank'
 						>
 							Заказать в Telegram
