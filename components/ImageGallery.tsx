@@ -1,13 +1,25 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ImageGallery({ images }: { images: string[] }) {
 	const [active, setActive] = useState(0)
 	const [open, setOpen] = useState(false)
 
 	const current = images[active] || '/placeholder/boiler-1.svg'
+
+	// 🔒 Блокировка прокрутки при открытии модалки
+	useEffect(() => {
+		if (open) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = ''
+		}
+		return () => {
+			document.body.style.overflow = ''
+		}
+	}, [open])
 
 	return (
 		<div className='space-y-3'>
@@ -33,12 +45,9 @@ export default function ImageGallery({ images }: { images: string[] }) {
 					<button
 						key={i}
 						onClick={() => setActive(i)}
-						className={`aspect-video rounded-lg overflow-hidden border transition 
-                        ${
-													i === active
-														? 'border-gray-900'
-														: 'border-transparent'
-												}`}
+						className={`aspect-video rounded-lg overflow-hidden border transition ${
+							i === active ? 'border-gray-900' : 'border-transparent'
+						}`}
 					>
 						<div className='relative w-full h-full'>
 							<Image
@@ -56,18 +65,26 @@ export default function ImageGallery({ images }: { images: string[] }) {
 			{/* Модалка (увеличение картинки) */}
 			{open && (
 				<div
-					className='fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out'
+					className='fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4'
 					onClick={() => setOpen(false)}
 				>
-					{/* ✅ Контейнер с размерами, чтобы fill отрисовался */}
-					<div className='relative max-w-[90vw] max-h-[90vh] w-auto h-auto flex items-center justify-center'>
-						<div className='relative w-[90vw] h-[90vh]'>
+					{/* Контейнер, чтобы fill работал */}
+					<div
+						className='relative max-w-[90vw] max-h-[90vh] w-auto h-auto flex items-center justify-center'
+						onClick={e => e.stopPropagation()} // чтобы не закрывалось при клике на фото
+					>
+						{/* ✅ Добавляем pinch-to-zoom и панорамирование */}
+						<div
+							className='relative w-[90vw] h-[90vh] overflow-auto touch-pan-y touch-pan-x'
+							style={{ WebkitOverflowScrolling: 'touch' }}
+						>
 							<Image
 								src={current}
 								alt='zoom'
 								fill
-								className='object-contain rounded-xl'
+								className='object-contain rounded-xl select-none'
 								sizes='90vw'
+								draggable={false}
 							/>
 						</div>
 					</div>
