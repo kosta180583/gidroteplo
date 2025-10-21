@@ -10,7 +10,7 @@ export default function Nav() {
 				</Link>
 				<nav className='ml-auto flex items-center gap-2'>
 					<a
-						href='https://t.me/your_Koeeeeen'
+						href='https://t.me/Koeeeeen'
 						target='_blank'
 						className='btn btn-outline'
 					>
