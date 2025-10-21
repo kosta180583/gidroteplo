@@ -9,10 +9,11 @@ export default function HomePage() {
 				{/* Заголовок */}
 				<section className='text-center space-y-2'>
 					<h1 className='text-3xl md:text-4xl font-semibold tracking-tight'>
-						Каталог
+						Модульные котельные
 					</h1>
 					<p className='text-gray-600'>
-						Минималистичный и современный интерфейс
+						Готовые котельные установки для домов площадью до 150 м² —
+						практичное и экономичное решение без лишних расходов
 					</p>
 				</section>
 
