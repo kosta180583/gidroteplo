@@ -62,31 +62,22 @@ export default function ImageGallery({ images }: { images: string[] }) {
 				))}
 			</div>
 
-			{/* Модалка (увеличение картинки) */}
+			{/* Модалка (увеличенное изображение) */}
 			{open && (
 				<div
-					className='fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4'
+					className='fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out'
 					onClick={() => setOpen(false)}
 				>
-					{/* Контейнер, чтобы fill работал */}
-					<div
-						className='relative max-w-[90vw] max-h-[90vh] w-auto h-auto flex items-center justify-center'
-						onClick={e => e.stopPropagation()} // чтобы не закрывалось при клике на фото
-					>
-						{/* ✅ Добавляем pinch-to-zoom и панорамирование */}
-						<div
-							className='relative w-[90vw] h-[90vh] overflow-auto touch-pan-y touch-pan-x'
-							style={{ WebkitOverflowScrolling: 'touch' }}
-						>
-							<Image
-								src={current}
-								alt='zoom'
-								fill
-								className='object-contain rounded-xl select-none'
-								sizes='90vw'
-								draggable={false}
-							/>
-						</div>
+					{/* Контейнер с размерами для fill */}
+					<div className='relative w-[90vw] h-[90vh] overflow-auto touch-pan-y touch-pan-x'>
+						<Image
+							src={current}
+							alt='zoom'
+							fill
+							className='object-contain rounded-xl select-none'
+							sizes='90vw'
+							draggable={false}
+						/>
 					</div>
 				</div>
 			)}
