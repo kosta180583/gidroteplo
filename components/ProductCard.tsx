@@ -26,18 +26,21 @@ export default function ProductCard({ product }: { product: Product }) {
 					</span>
 				)}
 
-				{/* Ключевой блок */}
-				<div className='relative w-full h-56 rounded-xl overflow-hidden bg-gray-200'>
-					<Image
-						src={img}
-						alt={product.name}
-						fill
-						className='object-cover transition-transform duration-300 hover:scale-105'
-						sizes='(max-width: 768px) 100vw, 400px'
-					/>
+				{/* Контейнер изображения */}
+				<div className='relative w-full h-64 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center'>
+					<div className='relative w-full h-full transition-transform duration-500 ease-in-out hover:scale-105'>
+						<Image
+							src={img}
+							alt={product.name}
+							fill
+							className='object-contain'
+							sizes='(max-width: 768px) 100vw, 400px'
+						/>
+					</div>
 				</div>
 			</div>
 
+			{/* Описание */}
 			<div className='mt-4 flex-1'>
 				<h3 className='text-lg font-semibold'>{product.name}</h3>
 				{product.characteristics && (
@@ -50,6 +53,7 @@ export default function ProductCard({ product }: { product: Product }) {
 				</p>
 			</div>
 
+			{/* Цена и кнопка */}
 			<div className='mt-4 flex items-center justify-between gap-2'>
 				<span className='font-semibold'>
 					{product.price.toLocaleString('ru-RU')} руб.
