@@ -26,7 +26,7 @@ export default function SidebarWidgets() {
 					</p>
 					<a
 						className='btn btn-outline mt-2'
-						href='https://t.me/your_username'
+						href='https://t.me/Koeeeeen'
 						target='_blank'
 					>
 						Написать в Telegram
