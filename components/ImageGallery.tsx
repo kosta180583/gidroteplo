@@ -53,20 +53,23 @@ export default function ImageGallery({ images }: { images: string[] }) {
 				))}
 			</div>
 
-			{/* Модальное окно (увеличение) */}
+			{/* Модалка (увеличение картинки) */}
 			{open && (
 				<div
 					className='fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 cursor-zoom-out'
 					onClick={() => setOpen(false)}
 				>
-					<div className='relative max-w-[90vw] max-h-[90vh]'>
-						<Image
-							src={current}
-							alt='zoom'
-							fill
-							className='object-contain rounded-xl'
-							sizes='90vw'
-						/>
+					{/* ✅ Контейнер с размерами, чтобы fill отрисовался */}
+					<div className='relative max-w-[90vw] max-h-[90vh] w-auto h-auto flex items-center justify-center'>
+						<div className='relative w-[90vw] h-[90vh]'>
+							<Image
+								src={current}
+								alt='zoom'
+								fill
+								className='object-contain rounded-xl'
+								sizes='90vw'
+							/>
+						</div>
 					</div>
 				</div>
 			)}
