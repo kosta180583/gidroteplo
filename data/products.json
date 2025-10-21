@@ -1,0 +1,41 @@
+[
+  {
+    "id": "b-100",
+    "name": "Котёл B-100",
+    "price": 32000,
+    "excerpt": "Компактный настенный котёл для дома",
+    "description": "Надёжный и экономичный котёл для отопления частных домов. Имеет высокий КПД и удобное управление.",
+    "characteristics": "Мощность 18 кВт • КПД 93% • 220В",
+    "preorder": false,
+    "images": [
+      "/placeholder/boiler-1.svg",
+      "/placeholder/boiler-2.svg",
+      "/placeholder/boiler-3.svg"
+    ]
+  },
+  {
+    "id": "b-200",
+    "name": "Котёл B-200",
+    "price": 48500,
+    "excerpt": "Мощный котёл для больших помещений",
+    "description": "Повышенная мощность и улучшенная теплоизоляция. Подходит для коммерческих объектов.",
+    "characteristics": "Мощность 28 кВт • КПД 95% • 220В/380В",
+    "preorder": true,
+    "images": [
+      "/placeholder/boiler-2.svg",
+      "/placeholder/boiler-1.svg"
+    ]
+  },
+  {
+    "id": "pump-50",
+    "name": "Насос P-50",
+    "price": 9800,
+    "excerpt": "Циркуляционный насос",
+    "description": "Тихая работа и низкое энергопотребление. Отличный выбор для систем отопления.",
+    "characteristics": "Производительность 50 л/мин • 60 Вт",
+    "preorder": false,
+    "images": [
+      "/placeholder/pump-1.svg"
+    ]
+  }
+]

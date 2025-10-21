@@ -1,0 +1,2 @@
+import { NextRequest,NextResponse } from 'next/server';
+export async function POST(req:NextRequest){const form=await req.formData();const password=String(form.get('password')||'');const adminPass=process.env.ADMIN_PASSWORD||'admin123';if(password===adminPass){const res=NextResponse.json({ok:true});res.cookies.set('admin','1',{httpOnly:true,path:'/',maxAge:60*60*2});return res;}return NextResponse.json({ok:false},{status:401});}
